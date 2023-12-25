@@ -1,0 +1,44 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="toggle-container">
+            <label class="toggle-label">
+                <input type="checkbox" id="toggleSwitch">
+                <span class="slider"></span>
+                <span class="toggle-text">Show Current Data</span>
+            </label>
+        </div>
+
+        <div class="sensor-box temperature">
+            <h2>Temperature</h2>
+            <p id="temperature">-- °C</p>
+        </div>
+
+        <div class="sensor-box moisture">
+            <h2>Moisture</h2>
+            <p id="moisture">--%</p>
+        </div>
+
+        <div class="sensor-box wind-speed">
+            <h2>Wind Speed</h2>
+            <p id="wind-speed">-- km/h</p>
+        </div>
+    </div>
+
+    <div class="history-container" style="display: none;">
+        <h2>Weather History</h2>
+        <ul id="weatherHistory"></ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

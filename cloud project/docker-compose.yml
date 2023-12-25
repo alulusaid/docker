@@ -1,0 +1,24 @@
+version: '3'
+services:
+  flask-app:
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    volumes:
+      - ./your_database.db:/app/static/weatherHistory.csv
+    networks:
+      - sensor_network
+
+  db:
+    image: "sqlite:latest"
+    volumes:
+      - ./your_database.db:/app/your_database.db
+    networks:
+      - sensor_network
+
+networks:
+  sensor_network:
+    driver: bridge
